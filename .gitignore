@@ -1,0 +1,10 @@
+# dados baixados (MNIST) — não versionar
+data/
+
+# caches do Python
+__pycache__/
+*.pyc
+
+# caches de ferramentas
+.pytest_cache/
+.ipynb_checkpoints/

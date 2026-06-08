@@ -17,10 +17,8 @@ class SGD:
         # params e grads são listas ALINHADAS (mesma ordem):
         #   params = [W1, b1, W2, b2, ...]   grads = [dW1, db1, dW2, db2, ...]
         for param, grad in zip(params, grads):
-            # TODO: atualização IN-PLACE — use -= (e não "param = param - ...",
-            #       que criaria um novo array e não alteraria o original).
-            #   param -= self.learning_rate * grad
-            pass
+
+            param -= self.learning_rate * grad
 
 
 # ---------------------------------------------------------------------------

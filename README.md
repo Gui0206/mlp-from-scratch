@@ -4,37 +4,9 @@ Primeiramente eu consegui implementar um perceptron simples na pasta de testes.
 
 Dia 02:
 
-Ainda na pasta de testes, para o MLP, eu pedi para o claude me dar uma estrutura de código pré pronto para que eu preencha, ele me deu isso:
+Ainda na pasta de testes, para o MLP, eu pedi para o claude me dar uma estrutura de código pré pronto para que eu preencha, vou deixar parte do código que ele me deu aqui:
 
 ```
-import numpy as np
-
-np.random.seed(42)
-
-# === Funções de ativação ===
-# Diferente do perceptron (step), aqui usamos uma ativação derivável,
-# porque o backprop precisa da derivada.
-def sigmoid(x):
-    # 1 / (1 + e^(-x))
-    pass
-
-def sigmoid_derivative(x):
-    # derivada da sigmoid. Dica: sig(x) * (1 - sig(x))
-    pass
-
-
-class MLP:
-    def __init__(self, n_inputs, n_hidden, n_outputs, learning_rate=0.1, n_epochs=10000):
-        # Camada 1: entrada -> escondida
-        self.W1 =      # shape (n_inputs, n_hidden)
-        self.b1 =      # shape (1, n_hidden)
-        # Camada 2: escondida -> saída
-        self.W2 =      # shape (n_hidden, n_outputs)
-        self.b2 =      # shape (1, n_outputs)
-
-        self.learning_rate =
-        self.n_epochs =
-
     def forward(self, X):
         # Camada escondida
         self.z1 =      # X @ W1 + b1   (combinação linear)
@@ -76,19 +48,9 @@ class MLP:
         pass
 
 
-# === Problema XOR (não é linearmente separável) ===
-X = np.array([[0,0], [0,1], [1,0], [1,1]])
-y = np.array([[0], [1], [1], [0]])   # note o shape (4, 1)
-
-mlp = MLP(n_inputs=2, n_hidden=4, n_outputs=1, learning_rate=0.1, n_epochs=10000)
-mlp.fit(X, y)
-
-print("Predições do MLP:")
-print(mlp.predict(X))
-
 ```
 
-Dia 03:
+Dia 03 parte 1:
 
 Agora é só modularizar isso para os arquivos do projeto.
 
@@ -96,3 +58,6 @@ Acabei de perceber que eu havia implementado a sigmoid, mas ela não vai funcion
 
 Depois de uns vídeos no youtube eu entendi o que a SoftMax faz; Pega os resultados da camada de saída e transforma em probabilidades que somam 1.
 
+Dia 03 parte 2:
+
+Acabei de implementar o SGD. O conceito de optimizer estava um pouco confuso, não entendia a diferença com a LOSS. Mas o optimizer é o algoritmo que calcular o reajuste a partir da métrica LOSS.

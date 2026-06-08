@@ -19,11 +19,10 @@ def categorical_cross_entropy(y_true, y_pred):
     Fórmula:  -mean( soma_por_linha( y_true * log(y_pred) ) )
     Como y_true é one-hot, em cada linha só "sobra" o log da classe correta.
     """
-    # TODO:
-    #   1) clip em y_pred para evitar log(0): np.clip(y_pred, 1e-9, 1 - 1e-9)
-    #   2) por linha: np.sum(y_true * np.log(y_pred), axis=1)
-    #   3) média com sinal negativo: -np.mean(...)
-    pass
+    # clip evita log(0), que seria -infinito
+    y_pred = np.clip(y_pred, 1e-9, 1 - 1e-9)
+    # por linha sobra só o log da classe correta; tira a média e inverte o sinal
+    return -np.mean(np.sum(y_true * np.log(y_pred), axis=1))
 
 
 def categorical_cross_entropy_gradient(y_true, y_pred):
@@ -40,7 +39,4 @@ def categorical_cross_entropy_gradient(y_true, y_pred):
     Ou seja, no network.py você NÃO precisa derivar a softmax na mão —
     é só usar este resultado direto como o "delta" da camada de saída.
     """
-    # TODO: retorne (y_pred - y_true)
-    #   (opcional: divida por y_true.shape[0] para virar média por amostra;
-    #    se fizer isso, mantenha a consistência no resto do backward)
-    pass
+    return y_pred - y_true

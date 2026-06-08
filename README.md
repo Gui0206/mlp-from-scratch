@@ -1,4 +1,8 @@
+Dia 01:
+
 Primeiramente eu consegui implementar um perceptron simples na pasta de testes.
+
+Dia 02:
 
 Ainda na pasta de testes, para o MLP, eu pedi para o claude me dar uma estrutura de código pré pronto para que eu preencha, ele me deu isso:
 
@@ -83,3 +87,12 @@ print("Predições do MLP:")
 print(mlp.predict(X))
 
 ```
+
+Dia 03:
+
+Agora é só modularizar isso para os arquivos do projeto.
+
+Acabei de perceber que eu havia implementado a sigmoid, mas ela não vai funcionar para o MNSIT por que a derivada dela é no máximo 0.25. O Claude já me ajudou me dando o protótipo da Relu no arquivo activations.py para implementar.
+
+Depois de uns vídeos no youtube eu entendi o que a SoftMax faz; Pega os resultados da camada de saída e transforma em probabilidades que somam 1.
+

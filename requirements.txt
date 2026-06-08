@@ -1,0 +1,5 @@
+numpy
+matplotlib
+# usados apenas para baixar/carregar o dataset MNIST (não na rede em si):
+torch
+torchvision
